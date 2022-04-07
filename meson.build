@@ -1,4 +1,4 @@
-subproject('zlib', 'c')
+project('zlib', 'c')
 
 zlib_sources = [
     'adler32.c',
@@ -19,3 +19,5 @@ zlib_sources = [
 ]
 
 libzlib = static_library('zlib', zlib_sources, include_directories: include_directories('.'), install : false)
+
+libzlib_dep = declare_dependency(include_directories: include_directories('.'), link_with: libzlib)
